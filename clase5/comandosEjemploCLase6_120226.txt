@@ -1,0 +1,161 @@
+
+mysql> SELECT * FROM clientes;
++----+-----------------------+--------------------------+------+
+| id | nombre                | email                    | edad |
++----+-----------------------+--------------------------+------+
+|  1 | luis.torres@gmail.com | Luis Torres              |   22 |
+|  2 | Juan Pérez            | juan.perez@gmail.com     |   30 |
+|  3 | María González        | maria.gonzalez@gmail.com |   25 |
+|  4 | Carlos Soto           | carlos.soto@gmail.com    |   40 |
+|  5 | Ana López             | ana.lopez@gmail.com      |   35 |
+|  6 | Pedro Ramírez         | pedro.ramirez@gmail.com  |   28 |
++----+-----------------------+--------------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> UPDATE clientes SET nombre = "Luis Torres" WHERE id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM clientes;
++----+----------------+--------------------------+------+
+| id | nombre         | email                    | edad |
++----+----------------+--------------------------+------+
+|  1 | Luis Torres    | Luis Torres              |   22 |
+|  2 | Juan Pérez     | juan.perez@gmail.com     |   30 |
+|  3 | María González | maria.gonzalez@gmail.com |   25 |
+|  4 | Carlos Soto    | carlos.soto@gmail.com    |   40 |
+|  5 | Ana López      | ana.lopez@gmail.com      |   35 |
+|  6 | Pedro Ramírez  | pedro.ramirez@gmail.com  |   28 |
++----+----------------+--------------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> UPDATE clientes SET email = "luis.torres@gmail.com" WHERE id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM clientes;
++----+----------------+--------------------------+------+
+| id | nombre         | email                    | edad |
++----+----------------+--------------------------+------+
+|  1 | Luis Torres    | luis.torres@gmail.com    |   22 |
+|  2 | Juan Pérez     | juan.perez@gmail.com     |   30 |
+|  3 | María González | maria.gonzalez@gmail.com |   25 |
+|  4 | Carlos Soto    | carlos.soto@gmail.com    |   40 |
+|  5 | Ana López      | ana.lopez@gmail.com      |   35 |
+|  6 | Pedro Ramírez  | pedro.ramirez@gmail.com  |   28 |
++----+----------------+--------------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> UPDATE clientes SET edad = edad + 1;
+Query OK, 6 rows affected (0.01 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> SELECT * FROM clientes;
++----+----------------+--------------------------+------+
+| id | nombre         | email                    | edad |
++----+----------------+--------------------------+------+
+|  1 | Luis Torres    | luis.torres@gmail.com    |   23 |
+|  2 | Juan Pérez     | juan.perez@gmail.com     |   31 |
+|  3 | María González | maria.gonzalez@gmail.com |   26 |
+|  4 | Carlos Soto    | carlos.soto@gmail.com    |   41 |
+|  5 | Ana López      | ana.lopez@gmail.com      |   36 |
+|  6 | Pedro Ramírez  | pedro.ramirez@gmail.com  |   29 |
++----+----------------+--------------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO clientes (nombre,email,edad) values ('juanito perez','hola@gmail.com',14), ('alonso cordoba','a.cordoba@gmail.com',5),('maria paz','m.paz@hotmail.com',8);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM clientes;
++----+----------------+--------------------------+------+
+| id | nombre         | email                    | edad |
++----+----------------+--------------------------+------+
+|  1 | Luis Torres    | luis.torres@gmail.com    |   23 |
+|  2 | Juan Pérez     | juan.perez@gmail.com     |   31 |
+|  3 | María González | maria.gonzalez@gmail.com |   26 |
+|  4 | Carlos Soto    | carlos.soto@gmail.com    |   41 |
+|  5 | Ana López      | ana.lopez@gmail.com      |   36 |
+|  6 | Pedro Ramírez  | pedro.ramirez@gmail.com  |   29 |
+|  7 | juanito perez  | hola@gmail.com           |   14 |
+|  8 | alonso cordoba | a.cordoba@gmail.com      |    5 |
+|  9 | maria paz      | m.paz@hotmail.com        |    8 |
++----+----------------+--------------------------+------+
+9 rows in set (0.00 sec)
+
+mysql> DELETE FROM clientes WHERE id = 7;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM clientes;
++----+----------------+--------------------------+------+
+| id | nombre         | email                    | edad |
++----+----------------+--------------------------+------+
+|  1 | Luis Torres    | luis.torres@gmail.com    |   23 |
+|  2 | Juan Pérez     | juan.perez@gmail.com     |   31 |
+|  3 | María González | maria.gonzalez@gmail.com |   26 |
+|  4 | Carlos Soto    | carlos.soto@gmail.com    |   41 |
+|  5 | Ana López      | ana.lopez@gmail.com      |   36 |
+|  6 | Pedro Ramírez  | pedro.ramirez@gmail.com  |   29 |
+|  8 | alonso cordoba | a.cordoba@gmail.com      |    5 |
+|  9 | maria paz      | m.paz@hotmail.com        |    8 |
++----+----------------+--------------------------+------+
+8 rows in set (0.00 sec)
+
+mysql> DELETE FROM clientes WHERE id < 10;
+Query OK, 8 rows affected (0.01 sec)
+
+mysql> SELECT * FROM clientes;
+Empty set (0.00 sec)
+
+-- en workbench para recuperar los datos
+
+INSERT INTO clientes(nombre, email,edad) values ("Luis Torres"    , "luis.torres@gmail.com"    , 23),
+ ("Juan Pérez"     , "juan.perez@gmail.com"     , 31),
+ ("María González" , "maria.gonzalez@gmail.com" , 26),
+ ("Carlos Soto"    , "carlos.soto@gmail.com"    , 41),
+ ("Ana López"      , "ana.lopez@gmail.com"      , 36),
+ ("Pedro Ramírez"  , "pedro.ramirez@gmail.com"  , 29),
+ ("alonso cordoba" , "a.cordoba@gmail.com"      ,  5),
+ ("maria paz"      , "m.paz@hotmail.com"        ,  8);
+
+
+---
+
+mysql> SELECT * FROM clientes;
++----+----------------+--------------------------+------+
+| id | nombre         | email                    | edad |
++----+----------------+--------------------------+------+
+| 10 | Luis Torres    | luis.torres@gmail.com    |   23 |
+| 11 | Juan Pérez     | juan.perez@gmail.com     |   31 |
+| 12 | María González | maria.gonzalez@gmail.com |   26 |
+| 13 | Carlos Soto    | carlos.soto@gmail.com    |   41 |
+| 14 | Ana López      | ana.lopez@gmail.com      |   36 |
+| 15 | Pedro Ramírez  | pedro.ramirez@gmail.com  |   29 |
+| 16 | alonso cordoba | a.cordoba@gmail.com      |    5 |
+| 17 | maria paz      | m.paz@hotmail.com        |    8 |
++----+----------------+--------------------------+------+
+8 rows in set (0.00 sec)
+
+mysql> DELETE FROM clientes WHERE edad < 10;
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> SELECT * FROM clientes;
++----+----------------+--------------------------+------+
+| id | nombre         | email                    | edad |
++----+----------------+--------------------------+------+
+| 10 | Luis Torres    | luis.torres@gmail.com    |   23 |
+| 11 | Juan Pérez     | juan.perez@gmail.com     |   31 |
+| 12 | María González | maria.gonzalez@gmail.com |   26 |
+| 13 | Carlos Soto    | carlos.soto@gmail.com    |   41 |
+| 14 | Ana López      | ana.lopez@gmail.com      |   36 |
+| 15 | Pedro Ramírez  | pedro.ramirez@gmail.com  |   29 |
++----+----------------+--------------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> DELETE FROM clientes;
+Query OK, 6 rows affected (0.01 sec)
+
+mysql> SELECT * FROM clientes;
+Empty set (0.00 sec)
+
+mysql>
