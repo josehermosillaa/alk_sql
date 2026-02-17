@@ -15,5 +15,10 @@ nacionalidad varchar(50) not null
 );*/
 
 insert into autores (nombre, apellido,fecha_de_nacimiento,nacionalidad) 
-values ("Howard Philips", "Lovecraft","20-08-1890","Estadounidense"),
-("Esther Huneeus","Salas","28-02-1902","Chilena");
+values ("Howard Philips", "Lovecraft","1890-08-20","Estadounidense"),
+("Esther Huneeus","Salas","1902-02-28","Chilena");
+
+-- supongamos que hubiera querido ingresar los datos con el formato dd/mm/yyyy
+-- (STR_TO_DATE('16/02/2026', '%d/%m/%y));
+
+SELECT * FROM autores;
