@@ -26,3 +26,6 @@ INSERT INTO empleados(nombre,apellido,edad, puesto) VALUES("Diego","Muñoz",33,"
 
 -- vacia los registros, o filas de la tabla, dejando la estructura intacta
 -- TRUNCATE TABLE empleados;
+
+SELECT * FROM datos;
+SELECT * FROM empleados;
